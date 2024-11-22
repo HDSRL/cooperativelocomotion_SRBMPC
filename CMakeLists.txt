@@ -1,27 +1,24 @@
 cmake_minimum_required(VERSION 3.5)
-project(sim_raisim_srb VERSION 1.0.0)
+project(cooperativeloco_SRBMPC VERSION 1.0.0)
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-O3")
 
-if($ENV{USER} STREQUAL "seop")
-    set(SIMULATION TRUE) # Chooses to compile the simulation executable or the experiment executable
-    add_definitions(-DRUNNING_SIM) # Adds the toe offset to be used in simulation (exp needs no offset)
-    set(LL_DIR /home/seop/git_repo_temp/cooperativelocomotion_SRBMPC/lowlevelctrl) # Path to low level files
-    set(PL_DIR /home/seop/git_repo_temp/cooperativelocomotion_SRBMPC/plannerSRBMPC) # Path to planner files
-else()
-    set(SIMULATION FALSE)
-endif()
+
+set(SIMULATION TRUE) # Chooses to compile the simulation executable or the experiment executable
+add_definitions(-DRUNNING_SIM) # Adds the toe offset to be used in simulation (exp needs no offset)
+set(LL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lowlevelctrl) # Path to low level files
+set(PL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/plannerSRBMPC) # Path to planner files
+
+#set(SIMULATION FALSE)
 
 
-#set(HANKEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/hankel/) # Path to the hankel matrices (for DeePC)
 set(BIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/bin) # Path to the binary folder (for the executables)
 
 # ===== Find Necessary Packages ===== #
-find_package(raisim CONFIG REQUIRED HINTS "/home/seop/raisimenv/raisim_build/lib/cmake")
-find_package(OGRE CONFIG REQUIRED HINTS "/home/seop/raisimenv/raisim_build/lib/OGRE/cmake")
-find_package(raisimOgre CONFIG REQUIRED HINTS "/home/seop/raisimenv/raisim_build/share/raisimOgre/cmake")
-#find_package(osqp REQUIRED HINTS "/home/seop/git_repo/osqp/build")
+find_package(raisim CONFIG REQUIRED HINTS "$ENV{LOCAL_INSTALL}/lib/cmake")
+find_package(OGRE CONFIG REQUIRED HINTS "$ENV{LOCAL_INSTALL}/lib/OGRE/cmake")
+find_package(raisimOgre CONFIG REQUIRED HINTS "$ENV{LOCAL_INSTALL}/share/raisimOgre/cmake")
 
 find_package(Eigen3 REQUIRED HINTS ${Eigen3_HINT})
 

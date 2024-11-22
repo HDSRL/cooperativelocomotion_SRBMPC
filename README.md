@@ -27,11 +27,12 @@ Clone this repository any directory and please revise CmakeList based on one's s
 - In bash, the following must be defined - it is a prerequisite when installing Raisim
 ```sh
 export WORKSPACE=${HOME}/raisimenv
-export LOCAL_BUILD=${HOME}/raisimenv/raisim_build
+export LOCAL_INSTALL=${HOME}/raisimenv/raisim_build
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WORKSPACE/raisim_build/lib
 ```
-- Be sure to add your license in this repo. (Please relace the activation.raisim in this repo to yours)
-- Make sure to provide correct paths to RaiSim and RaiSimOgre in the CMakeLists.txt file
+- HEADSUP: The name of these env variables are being reused in CmakeList in this repo. If you decide to use different env variable name, please also revise the CmakeList in this repo.
+- Be sure to add your license in this repo. (Please relace the activation_placeholder.raisim in this repo to yours)
+- Make sure to provide correct paths to RaiSim, Ogre, and RaiSimOgre in the CMakeLists.txt file
 
 # Building
 ```sh
