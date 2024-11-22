@@ -1,0 +1,283 @@
+material collection_checkerboard
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture checker.png
+                scale 0.05 0.05
+            }
+        }
+    }
+}
+
+material collection_checkerboard_green
+{
+    technique
+    {
+        pass
+        {
+             ambient 1 1 1 0.0
+             diffuse 1 1 1 0.0
+             emissive 0 0 0 0
+
+            texture_unit
+            {
+                texture checker_green.png
+                scale 0.1 0.1
+            }
+        }
+    }
+}
+
+material collection_checkerboard_blue
+{
+    technique
+    {
+        pass
+        {
+            ambient 1 1 1 0
+            diffuse 1 1 1 0
+            specular 1 1 1 50           
+            depth_write off             
+            
+
+            texture_unit
+            {
+                texture checker_blue.jpg                
+                scale 0.1 0.1
+            }
+
+            // Additional RT Shader system options
+            rtshader_system
+            {
+                // Do lighting calculations per-pixel 
+                lighting_stage per_pixel
+            }
+        }
+    }
+}
+
+material collection_checkerboard_skyblue
+{
+    technique
+    {
+        pass
+        {
+            ambient 1 1 1 0
+            diffuse 1 1 1 0
+            specular 1 1 1 50           
+            depth_write off             
+            
+
+            texture_unit
+            {
+                texture checker_skyblue2.jpg                
+                scale 0.0067 0.0067
+            }
+
+            // Additional RT Shader system options
+            rtshader_system
+            {
+                // Do lighting calculations per-pixel 
+                lighting_stage per_pixel
+            }
+        }
+    }
+}
+
+material collection_checkerboard_darkblue
+{
+    technique
+    {
+        pass
+        {
+            ambient 1 1 1 0
+            diffuse 1 1 1 0
+            specular 1 1 1 50           
+            depth_write off             
+            
+
+            texture_unit
+            {
+                texture checker_darkblue2.jpg                
+                scale 0.1 0.1
+            }
+
+            // Additional RT Shader system options
+            rtshader_system
+            {
+                // Do lighting calculations per-pixel 
+                lighting_stage per_pixel
+            }
+        }
+    }
+}
+
+material collection_checkerboard_purple
+{
+    technique
+    {
+        pass
+        {
+             ambient 1 1 1 0.0
+             diffuse 1 1 1 0.0
+             specular 1 1 1 50
+             emissive 0 0 0 0
+             depth_write on
+
+            texture_unit
+            {
+                texture checker_purple.jpg
+                scale 0.005 0.005
+            }
+
+            rtshader_system
+            {
+                // Do lighting calculations per-pixel 
+                lighting_stage per_pixel
+            }
+        }
+    }
+}
+
+material collection_checkerboard_yellow
+{
+    technique
+    {
+        pass
+        {
+             ambient 1 1 1 0.0
+             diffuse 1 1 1 0.0
+             specular 1 1 1 0
+             emissive 0 0 0 0
+             depth_write on
+
+            texture_unit
+            {
+                texture checker_yellow.jpg
+                scale 0.005 0.005
+            }
+
+            rtshader_system
+            {
+                // Do lighting calculations per-pixel 
+                lighting_stage per_pixel
+            }
+        }
+    }
+}
+
+material collection_transparent_opaque
+{
+    technique
+    {
+        pass
+        {
+             scene_blend alpha_blend
+             depth_write off
+             lighting off
+                          
+             texture_unit
+             {
+                 colour_op_ex modulate src_current src_manual 0.7529 0.7529 0.7529
+                 alpha_op_ex modulate src_texture src_manual 0.8
+             }
+
+             rtshader_system
+            {
+                // Do lighting calculations per-pixel 
+                lighting_stage per_pixel
+            }
+        }
+    }
+}
+
+material collection_transparent
+{
+    technique
+    {
+        pass
+        {
+             scene_blend alpha_blend
+             depth_write off
+             lighting off
+                          
+             texture_unit
+             {
+                 colour_op_ex modulate src_current src_manual 0.7529 0.7529 0.7529
+                 alpha_op_ex modulate src_texture src_manual 0.55
+             }
+
+             rtshader_system
+            {
+                // Do lighting calculations per-pixel 
+                lighting_stage per_pixel
+            }
+        }
+    }
+}
+
+material collection_green_trans
+{
+    technique
+    {
+        pass
+        {
+             scene_blend modulate
+             depth_write off
+
+             texture_unit
+             {
+                 colour_op_ex modulate src_manual src_current 0.0 1.0 0.0
+             }
+        }
+    }
+}
+
+material collection_blackshade
+{
+    technique
+    {
+        pass
+        {
+             ambient 1 1 1 0.0
+             diffuse 1 1 1 0.0
+             specular 1 1 1 0
+             emissive 0 0 0 0
+             lighting off
+             
+             texture_unit
+             {
+                 colour_op_ex modulate src_current src_manual 0.2 0.2 0.2
+                 
+             }
+
+             rtshader_system
+            {
+                // Do lighting calculations per-pixel 
+                lighting_stage per_pixel
+            }
+        }
+    }
+}
+
+material collection_checkerboard_green_transparent
+{
+    technique
+    {
+        pass
+        {
+             scene_blend alpha_blend
+             depth_write off
+
+             texture_unit
+             {
+                 texture green_transparent.png
+                 scale 0.1 0.1
+             }
+        }
+    }
+}

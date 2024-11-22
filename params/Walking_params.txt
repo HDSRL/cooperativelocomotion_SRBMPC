@@ -1,0 +1,20 @@
+0.26
+0.12
+0.0
+0.0
+0.0
+1
+0
+
+// =========================================== //
+// ======= Ordering and default values ======= //
+// =========================================== //
+standHeight = 0.26;
+h_swing = 0.06;
+fwdSpeed = 0.0;
+latSpeed = 0.0;
+yawSpeed = 0.0; // NOT IMPLEMENTED IN CODE YET, ONLY PARAMS
+neverStopTrot = 1;
+extCmd = 0;             // If 1, accepts velocity commands from external source 
+                        // (i.e., ignores velocity commands from this file)
+
